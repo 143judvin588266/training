@@ -1,0 +1,61 @@
+ db.flightData.insertOne({
+...         "departureAirport":"CIAL",
+...         "arrivalAirport":"CHENNAI",
+...         "aircraft":"Airbus A280",
+...         "distance":1000,
+...         "intercontinental": false
+...     })
+
+/////////////////////////////////////////////////////////////////////////////
+
+ db.flightData.insertMany([
+...     {
+...         "departureAirport":"MUMBAI",
+...         "arrivalAirport":"CIAL",
+...         "aircraft":"Airbus A320",
+...         "distance":3500,
+...         "intercontinental": true
+...     },
+...     {
+...         "departureAirport":"KIAL",
+...         "arrivalAirport":"CIAL",
+...         "aircraft":"Airbus A380",
+...         "distance":5000,
+...         "intercontinental": true
+...     },
+...     {
+...         "departureAirport":"DXB",
+...         "arrivalAirport":"SFO",
+...         "aircraft":"Airbus A380",
+...         "distance":2000,
+...         "intercontinental": false
+...     },
+... ])
+
+/////////////////////////////////////////////////////////////////////////////
+
+db.flightData.find().pretty()
+
+/////////////////////////////////////////////////////////////////////////////
+
+ db.flightData.updateOne({aircraft:"Airbus A280"},{$set:{arrivalAirport:"LDX"}})
+ 
+ //////////////////////////////////////////////////////////////////////////////
+ 
+  db.flightData.updateMany({},{$set:{flightInfo:{description:"On Time",status:"Arrived"}}})
+  
+  //////////////////////////////////////////////////////////////////////////////
+  
+   db.flightData.deleteOne({"distance":2000})
+   
+   /////////////////////////////////////////////////////////////////////////////////
+   
+    db.flightData.deleteMany({})
+    
+    /////////////////////////////////////////////////////////////////////////////////
+    
+     db.flightData.find({distance:{$gt:3000}}).toArray()
+     
+     ///////////////////////////////////////////////////////////////////////////////////
+     
+      db.flightData.replaceOne({ "_id" : ObjectId("5fd11c5c54faa325dc450570")},{status:"Cancelled"})
