@@ -1,0 +1,68 @@
+Statistics of database
+
+> db.stats()
+
+> db.user.insertMany([{name\;"judvin" , age:23,email:"jude123@gmail.com"},{name\;"jude" , age:23,email:"hijude123@gmail.com"}])
+
+>displaying datatype of a variable
+>typeof db.user.findOne().name;
+
+/////////////////////////////////////////
+>use hospital
+
+>parent disease reln:(one to one)
+
+>db.patients.insertOne({name:"rakul",age:25,diseaseSummary:"summary-1"})
+>db.diseaseSummaries.insertOne({name:"ajith",age:25,disease:[Summary:["fever","cough"]})
+>db.patients.find().pretty()
+>db.diseaseSummaries.find().pretty()
+
+//////////////////////////////////////////////
+
+Customer car reln(one to one)
+
+> db.customers.insertOne({name:"Ajith",age:24,_id:"123"})
+
+> db.brands.insertOne({model:"BMW",price:5000000,owner: 123)})
+
+> db.customers.find()
+
+> db.brands.findOne()
+
+////////////////////////////////////////////////
+Question-Answer reln(one to many)
+
+> use Quest
+
+> db.question.insertOne({creator:"Aswin",question:"What is OOPs?",answers:["a1","a2"]})
+
+> db.answers.insertMany([{_id:"a1",text:"OOPS"},{_id:"a2",text:"Object"}])
+
+> db.question.findOne()
+
+> db.answers.find().pretty()
+
+/////////////////////////////////////////////////
+
+Book authors reln:
+
+> use bookRegistry
+
+> db.books.drop()
+
+> db.authors.drop()
+
+> db.books.insertOne({name:"My Favourite Book",authors:[{name:"rahul",age:24},{name:"ram",age:25}]})
+
+>  db.authors.insertMany([{name:"rahul",age:24,address:{street:"main"}},{name:"ram",age:25,address:{street:"main"}}])
+
+> db.books.updateOne({},{$set:{authors:[145,156]}})
+
+> db.books.find().pretty()
+      
+> db.authors.find().pretty()
+
+///////////////////////////////////////////////
+Book author aggregate
+
+> db.books.aggregate([{$lookup:{from:"authors",localField:"authors",foreignField:"_id",as:"creators"}}]).pretty()
