@@ -1,0 +1,8 @@
+Collection Scan
+
+>db.contacts.explain().find({"dob.age":{$gt:40}})
+
+
+IXscan
+
+>db.contacts.explain().find({"dob.age":{$gt:50}})
