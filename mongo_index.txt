@@ -1,0 +1,15 @@
+Create Index
+
+>db.contacts.createIndex({"dob.age":20})
+
+create partial index
+
+>db.contacts.createIndex({"dob.age":1},{partialFilterExpression:{"dob.age":{$gt:50}}})
+
+Create Index with Expiry
+
+>db.contacts.createIndex({createdAt:1},{expiredAfterSeconds:10})
+
+Drop Index
+
+>db.contacts.dropIndex({"dob.age":20})
