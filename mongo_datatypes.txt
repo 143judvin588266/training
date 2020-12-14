@@ -1,0 +1,88 @@
+Data Types
+----------
+
+Data type is an essential component of a language or script that is used to define the type of data being used in framing the database.
+
+MongoDB stores documents in BSON, which is the binary encoded format of JSON.
+
+ The BSON data format provides various types, used when we store the JavaScript objects in the binary form.
+
+We can make remote procedure calls in MongoDB by using BSON. All the BSON data-types are supported in MongoDB.
+
+
+List Of Data Types
+-----------------
+
+Integer 
+Boolean
+Double 
+String
+Arrays
+Object
+Date 
+Timestamps
+Null
+
+Integer
+-------
+Integer is used to store the numeric value. It can be 32 bit or 64 bit depending on the server you are using.
+
+>db.demo.insertOne({age:24})
+>typeOf db.demo.findOne().age
+
+Boolean
+-------
+
+This datatype is used to store Boolean values. It just shows YES/NO values.
+
+> db.demo.insertOne({isWorking:true})
+
+Double
+------
+
+Double datatype stores floating point values.
+>db.demo.insertOne({Temparature:37.60})
+
+String
+------
+
+String is the most commonly used datatype. It is used to store data. A string must be UTF 8 valid in MongoDb.
+
+>db.demo.insertOne({name:"judvin"})
+
+Arrays
+------
+
+This type is used to store arrays or list or multiple values into one key.
+
+>db.demo.insertOne({hobies:["swimming","basketball","reading"]})
+
+
+Object
+------
+
+This datatype is used for embedded documents.
+
+>db.demo.insertOne({address:{Location:"Kothamangalam",zip:456,country:"India"}})
+
+Date
+----
+
+This datatype is used to store the current date or time in UNIX time format. You can specify your own date time by creating object of Date and passing day, month, year into it.
+
+> var date=new Date()
+>db.calender.insertOne({date:date})
+
+time stamp
+----------
+
+This can be handy for recording when a document has been modified or added.
+
+>db.timestamo.insertOne({ts:new Timestamp()})
+
+null
+----
+
+This type is used to store a Null value.
+
+> db.null.insertOne({purchase:null})
